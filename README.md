@@ -4,9 +4,9 @@ Create the Root CA and the Intermediate CA
 
 ## Table of Contents
 
-- [Create the Root CA](#Create the Root CA)
-- [Create the Intermediate Key](#Create the Intermediate Key)
-- [Create the keystore PKCS12](#Create the keystore PKCS12)
+- [Create the Root CA](#create-the-root-cA)
+- [Create the Intermediate Key](#create-the-intermediate-key)
+- [Create the keystore PKCS12](#create-the-keystore-pkcs12)
 - [License](#license)
 
 
@@ -114,7 +114,7 @@ $ chmod 444 intermediate/certs/ca-chain.cert.pem
 $ openssl pkcs12 -inkey intermediate/private/intermediate.key.pem -in intermediate/certs/ca-chain.cert.pem -export -name [YOUR_ALIAS] -out intermediate/pfx/intermediate.pfx.pem
 ```
 
-### Create the keystore to Java Keystore (jks)
+### Convert the keystore (PKCS12) to Java Keystore (jks)
 
 ```
 $ keytool -importkeystore -destkeystore keystore.jks -srckeystore intermediate/pfx/intermediate.pfx.pem -srcstoretype pkcs12 -alias [YOUR_ALIAS]
