@@ -4,8 +4,8 @@ Create the Root CA and the Intermediate CA
 
 ## Table of Contents
 
-- [Create the Root CA](#create-the-root-cA)
-- [Create the Intermediate Key](#create-the-intermediate-key)
+- [Create the Root CA](#create-the-root-ca)
+- [Create the Intermediate CA](#create-the-intermediate-ca)
 - [Create the keystore PKCS12](#create-the-keystore-pkcs12)
 - [License](#license)
 
