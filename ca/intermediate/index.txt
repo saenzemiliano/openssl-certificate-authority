@@ -1,0 +1,9 @@
+R	190810155030Z	180731172004Z	1000	unknown	/C=UY/ST=Uruguay/L=Montevideo/O=COMPANY/OU=DEP/CN=PartyA/emailAddress=company@correo.org.uy
+V	190810172032Z		1001	unknown	/C=UY/ST=Uruguay/L=Montevideo/O=COMPANY/OU=DEP/CN=PartyA/emailAddress=company@correo.org.uy
+V	190810183220Z		1002	unknown	/C=UY/ST=Uruguay/L=Uruguay/O=PartyA/OU=DEP/CN=PartyA
+V	190810184442Z		1003	unknown	/C=UY/L=Uruguay/O=Notary/OU=DEP/CN=Notary
+V	190904185625Z		1004	unknown	/C=UY/L=Uruguay/O=Notary/OU=DEP/CN=NotaryTls
+V	190810190041Z		1005	unknown	/C=UY/L=Uruguay/O=PartyZ/OU=DEP/CN=PartyZTLS
+V	190810190259Z		1006	unknown	/C=UY/L=Uruguay/O=PartyZ/OU=DEP/CN=PartyZ
+V	190810191743Z		1007	unknown	/C=UY/L=Uruguay/O=PartyJ/CN=PartyJTLS
+V	190810191956Z		1008	unknown	/C=UY/L=Uruguay/CN=PartyJ

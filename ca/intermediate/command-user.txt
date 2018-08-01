@@ -1,0 +1,20 @@
+$ cd [YOUR_PATH]/ca
+$ openssl genrsa -aes256 -out intermediate/private/user.ssl.key.pem 2048
+$ chmod 444 intermediate/private/user.ssl.key.pem
+$ openssl req -config intermediate/openssl.cnf -key intermediate/private/user.ssl.key.pem -new -sha256 -out intermediate/csr/user.ssl.csr.pem
+$ openssl ca -config intermediate/openssl.cnf -extensions usr_cert -days 375 -notext -md sha256 -in intermediate/csr/user.ssl.csr.pem -out intermediate/certs/user.ssl.cert.pem
+$ chmod 444 intermediate/certs/user.ssl.cert.pem
+$ cat intermediate/certs/user.ssl.cert.pem intermediate/certs/intermediate.cert.pem certs/ca.cert.pem > intermediate/certs/user.ssl.chain.cert.pem
+$ openssl pkcs12 -inkey intermediate/private/user.ssl.key.pem -in intermediate/certs/user.ssl.chain.cert.pem -export -name clienttls -out intermediate/pfx/user.ssl.pfx.pem
+$ keytool -importkeystore -destkeystore user.sslkeystore.jks -srckeystore intermediate/pfx/user.ssl.pfx.pem -srcstoretype pkcs12 -alias clienttls
+
+$ cd [YOUR_PATH]/ca
+$ openssl genrsa -aes256 -out intermediate/private/user.node.key.pem 2048
+$ chmod 444 intermediate/private/user.node.key.pem
+$ openssl req -config intermediate/openssl.cnf -key intermediate/private/user.node.key.pem -new -sha256 -out intermediate/csr/user.node.csr.pem
+$ openssl ca -config intermediate/openssl.cnf -extensions usr_cert -days 375 -notext -md sha256 -in intermediate/csr/user.node.csr.pem -out intermediate/certs/user.node.cert.pem
+$ chmod 444 intermediate/certs/user.node.cert.pem
+$ cat intermediate/certs/user.node.cert.pem intermediate/certs/intermediate.cert.pem certs/ca.cert.pem > intermediate/certs/user.node.chain.cert.pem
+$ openssl pkcs12 -inkey intermediate/private/user.node.key.pem -in intermediate/certs/user.node.chain.cert.pem -export -name clientca -out intermediate/pfx/user.node.pfx.pem
+$ keytool -importkeystore -destkeystore user.nodekeystore.jks -srckeystore intermediate/pfx/user.node.pfx.pem -srcstoretype pkcs12 -alias clientca
+

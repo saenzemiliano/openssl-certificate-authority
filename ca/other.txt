@@ -1,0 +1,12 @@
+openssl req -newkey rsa:2048 -nodes -keyout example.bcu.gub.uy.key -out example.bcu.gub.uy.csr
+openssl req -key example.bcu.gub.uy.key -new -x509 -days 3000 -out example.bcu.gub.uy.crt
+openssl x509 -in example.bcu.gub.uy.crt -text -noout
+openssl pkcs12 -inkey example.bcu.gub.uy.key -in example.bcu.gub.uy.crt -export -name examplerootca -out example.bcu.gub.uy.pfx
+keytool -importkeystore -destkeystore truststore.jks -srckeystore example.bcu.gub.uy.pfx -srcstoretype pkcs12 -alias examplerootca
+keytool -import -alias examplerootca -keystore truststore.jks -file example.bcu.gub.uy.crt
+openssl ca -revoke bad_crt_file -keyfile ca_key -cert ca_crt
+openssl verify -CAfile certs/ca.cert.pem  intermediate/certs/intermediate.cert.pem
+openssl x509 -noout -text -in intermediate/certs/intermediate.cert.pem
+openssl ca -config intermediate/openssl.cnf -revoke intermediate/newcerts/1000.pem
+openssl verify -CAfile intermediate/certs/ca-chain.cert.pem intermediate/certs/partya.ssl.cert.pem
+openssl x509 -noout -text -in intermediate/certs/partya.ssl.cert.pem

@@ -1,0 +1,6 @@
+[ CA_default ]
+x509_extensions	= usr_cert		# The extentions to add to the cert
+
+
+[usr_cert]
+basicConstraints=CA:TRUE
