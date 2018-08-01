@@ -34,7 +34,7 @@ $ echo 1000 > serial
 ```
 ### Configuration OpenSSL file
 
-You must change the directory and file locations
+Copy the Root CA configuration file to [YOUR_PATH]/ca/openssl.cnf. You must change the directory and file locations.
 ```
 # Directory and file locations.
 dir               = [YOUR_PATH]/ca
@@ -65,7 +65,7 @@ $ openssl x509 -noout -text -in certs/ca.cert.pem
 
 ```
 $ mkdir ca/intermediate
-$ cd ca
+$ cd ca/intermediate
 $ mkdir certs crl newcerts private pfx
 $ chmod 700 private
 $ touch index.txt
@@ -74,7 +74,7 @@ $ echo 1000 > serial
 
 ### Configuration OpenSSL file
 
-You must change the directory and file locations
+Copy the Intermediate CA configuration file to [YOUR_PATH]/ca/intermediate/openssl.cnf. You must change the directory and file locations.
 ```
 # Directory and file locations.
 dir               = [YOUR_PATH]/ca/intermediate
